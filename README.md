@@ -1,4 +1,4 @@
-##Ongoing project
+## Ongoing project
 
 Ragnarok Online boss respawn timer
 
@@ -8,7 +8,7 @@ Ragnarok Online boss respawn timer
 - responsiveness: Mobile only (360px) (temporarily)
 
 
-##This project is using my API: 
+## This project is using my API: 
 
 All monsters:
 https://ragnarok-api.b4a.app/en/monsters
