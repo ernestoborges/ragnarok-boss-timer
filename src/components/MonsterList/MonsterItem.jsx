@@ -20,7 +20,7 @@ export function MonsterItem({ n, boss }) {
         respawnTime: boss.spawn_maps[0].respawnTime
       }
     );
-  }, []);
+  }, [boss]);
 
   return (
     <li>
