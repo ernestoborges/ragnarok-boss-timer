@@ -1,0 +1,90 @@
+.App > header {
+  background-color: #1e1e1e;
+  height: 3.6rem;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  position: relative;
+}
+
+/* clock */
+/* 
+.clock-container
+.clock-pointer
+.digital-clock */
+
+.clock-container {
+  position: absolute;
+  width: 10rem;
+  right: 0;
+  left: 0;
+  top: -4.6rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.clock {
+  height: 10rem;
+  width: 10rem;
+  border: 3px solid #ffd700;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.day-night-spinner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ffd700;
+  overflow: hidden;
+  transform: rotate(270deg);
+}
+
+.day,
+.night {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+.day {
+  width: 5rem;
+  justify-content: flex-start;
+  background-color: #3a53ac;
+  padding-left: 0.6rem;
+  font-size: 2rem;
+}
+.night {
+  width: 5rem;
+  justify-content: flex-end;
+  background-color: #181616;
+  padding-right: 0.6rem;
+}
+.night > svg {
+  transform: rotate(-90deg);
+}
+.clock-pointer {
+  width: 1.4rem;
+  height: 0.6rem;
+  position: absolute;
+  bottom: 2.8rem;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  transform: rotate(180deg);
+  background-color: #ffd700;
+}
+.digital-clock {
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: 3.2rem;
+  background-color: #202024;
+  border: 1px solid #ffd700;
+  padding: 0 0.4rem;
+  border-radius: 0 0 0.6rem 0.6rem;
+}
+.transparent {
+  color: transparent;
+}

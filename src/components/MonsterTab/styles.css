@@ -1,0 +1,46 @@
+.input-container {
+    border: 0.1rem solid #ffd700;
+    border-radius: 2rem;
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+}
+.input-container > *:first-child {
+    color: #ffd700;
+    width: 2rem;
+    height: 2rem;
+}
+.input-container input {
+    color: #fdfeff;
+    background-color: transparent;
+    border: none;
+    margin-left: 1rem;
+    width: 100%;
+}
+::placeholder { 
+    color: #fdfeff;
+    font-weight: 300;
+    opacity: 0.4; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #fdfeff;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #fdfeff;
+}
+
+.input-container > button {
+    background-color: transparent;
+    color: #ffd700;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-container > button > * {
+    width: 2rem;
+    height: 2rem;
+}

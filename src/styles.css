@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+:root {
+  font-size: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #fdfeff;
+  font-family: "Open Sans", sans-serif;
+}
+
+main {
+  background-color: #202024;
+  padding: 2rem 1rem;
+}
+
+main > section {
+  min-height: 100vh;
+}
+
+.hidden {
+  display: none;
+}
