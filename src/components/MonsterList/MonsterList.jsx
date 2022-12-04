@@ -1,5 +1,10 @@
+import { useState } from "react";
 import { MonsterItem } from "./MonsterItem";
+import { Popup } from "./Popup";
+
+
 export function MonsterList({ monsters }) {
+
   return (
     <ul className="monster-list">
       {monsters
@@ -14,7 +19,7 @@ export function MonsterList({ monsters }) {
           return false;
         })
         .map((boss, index) => (
-          <MonsterItem key={index} n={index} boss={boss} />
+          <MonsterItem key={index} boss={boss} />
         ))}
     </ul>
   );

@@ -6,7 +6,7 @@ import { useState, useContext, useEffect } from "react";
 
 export function MonsterTab({ monsters, selectedTab }) {
   const [searchInputValue, setSearchInputValue] = useState("");
-  const [filteredMonsters, setFilteredMonsters] = useState(monsters);
+  const [filteredMonsters, setFilteredMonsters] = useState([]);
   const [filterState, setFilterState] = useState(false);
   const [filters, setFilters] = useState(
       {
@@ -15,8 +15,11 @@ export function MonsterTab({ monsters, selectedTab }) {
       }
     )
 
-
   function filterHanddler() {
+
+    if(!searchInputValue){
+      setFilteredMonsters(monsters)
+    }
 
     let filtered = monsters.filter(
       monster => {
@@ -65,6 +68,10 @@ export function MonsterTab({ monsters, selectedTab }) {
   useEffect(()=>{
     filterHanddler()
   }, [searchInputValue, filters])
+
+  useEffect(()=>{
+    setFilteredMonsters(monsters)
+  },[monsters])
 
   return (
     <section className={selectedTab === "monsters" ? "" : "hidden"}>

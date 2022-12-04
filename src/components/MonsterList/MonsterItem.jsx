@@ -2,12 +2,23 @@ import "./styles.css";
 import { useEffect, useState, useContext } from "react";
 import SelectedMonstersContext from "../../context/SelectedMonstersProvider";
 import TimeContext from "../../context/TimeProvider";
+import { Popup } from "./Popup";
 
-export function MonsterItem({ n, boss }) {
+export function MonsterItem({ boss }) {
   const [respawn, setRespawn] = useState({respawnMap:"", respawnTime:0});
 
   const timer = useContext(TimeContext).timer;
   const setSelectedMonsters = useContext(SelectedMonstersContext).setSelectedMonsters
+
+  const [popupOn, setPopupOn] = useState(false)
+
+  function openPopup(){
+    setPopupOn(true);
+  }
+  
+  function closePopup(){
+    setPopupOn(false);
+  }
 
   function convertTime(time) {
     return new Date(Number(time)).toISOString().slice(11, 19);
@@ -74,6 +85,11 @@ export function MonsterItem({ n, boss }) {
             ]
           )
         }>Add</button>
+
+      <button
+        onClick={openPopup}
+      >Custom</button>
+      {popupOn && <Popup closePopup={closePopup} />}
     </li>
   );
 }
