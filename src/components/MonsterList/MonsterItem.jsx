@@ -3,6 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import SelectedMonstersContext from "../../context/SelectedMonstersProvider";
 import TimeContext from "../../context/TimeProvider";
 import { Popup } from "./Popup";
+import { BsHourglass } from "react-icons/bs"
 
 export function MonsterItem({ boss }) {
   const [respawn, setRespawn] = useState({respawnMap:"", respawnTime:0});
@@ -22,6 +23,22 @@ export function MonsterItem({ boss }) {
 
   function convertTime(time) {
     return new Date(Number(time)).toISOString().slice(11, 19);
+  }
+
+  function handdleSelectedMonsters(startedAt){
+   
+    setSelectedMonsters((prev)=>
+      [
+        ...prev,
+        {
+          index: prev.length === 0 ? 0 : prev[prev.length-1].index + 1,
+          data: boss,
+          respawnMap: respawn.respawnMap,
+          respawnTime: respawn.respawnTime,
+          startedAt: startedAt
+        }
+      ]
+    )
   }
 
   useEffect(() => {
@@ -70,26 +87,18 @@ export function MonsterItem({ boss }) {
           </select>
         </div>
       </div>
-      <button 
-        onClick={()=>
-          setSelectedMonsters((prev)=>
-            [
-              ...prev,
-              {
-                index: prev.length === 0 ? 0 : prev[prev.length-1].index + 1,
-                data: boss,
-                respawnMap: respawn.respawnMap,
-                respawnTime: respawn.respawnTime,
-                startedAt: timer
-              }
-            ]
-          )
-        }>Add</button>
-
-      <button
-        onClick={openPopup}
-      >Custom</button>
-      {popupOn && <Popup closePopup={closePopup} />}
+      <div className="button-container">
+        <button 
+          onClick={()=>{
+            handdleSelectedMonsters(timer)
+          }}
+        >
+          Add</button>
+        <button 
+          onClick={openPopup}
+        >Custom</button>
+      </div>
+      {popupOn && <Popup closePopup={closePopup} handdleSelectedMonsters={handdleSelectedMonsters} />}
     </li>
   );
 }

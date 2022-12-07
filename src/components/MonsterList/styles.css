@@ -3,6 +3,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
+  padding: 2rem 0;
 }
 .monster-list .img-container {
   height: 8rem;
@@ -20,6 +21,10 @@
   border: 1px solid red;
 }
 
+.monster-list div:nth-child(2) {
+  width: 100%;
+}
+
 .monster-list .name-container > p {
   font-size: 1.2rem;
 }
@@ -31,17 +36,38 @@
   flex-direction: column;
 }
 
-.monster-list li > button {
-  padding: 1rem;
+.monster-list .button-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 0.4rem;
+  margin-right: 2rem;
 }
 
+
+.monster-list .button-container button {
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 0.4rem;
+}
+
+.monster-list .button-container button:first-child {
+  height: 5rem;
+  background-color: #286090;
+  color: #fdfeff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
 
 /* popup */
 
 .popup-container {
+  font-size: 1.6rem;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.7);
   position: fixed;
   left: 0;
   top: 0;
@@ -52,9 +78,100 @@
 }
 
 .popup-box {
-  width: 20rem;
-  height: 10rem;
-  background-color: #fdfeff;
+  min-width: 24rem;
+  /* height: 10rem; */
+  background-color: #202024;
+  border: 0.1rem solid #ffd700;
   border-radius: 0.6rem;
-  padding: 1rem;
+  padding: 0 0 1.6rem;
+  display:flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: hidden;
 }
+.popup-box header {
+  background-color: #181616;
+  padding: 1rem 2rem;
+}
+
+.popup-box > section {
+  padding: 1rem 2rem 0;
+}
+.popup-box > section:nth-child(2){
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.popup-box > section > label {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup-box > section > label > input {
+  padding: 0.4rem;
+  border: none;
+  border-radius: 0.4rem;
+  width: 11rem;
+}
+
+.bs-check {
+  color:#35b176;
+}
+
+.bs-x {
+  color: red;
+}
+
+.popup-box > section:nth-child(3){
+  display: flex;
+  gap: 1rem;
+}
+
+.popup-box .cancel,
+.popup-box .add {
+  width: 100%;
+  padding: 0.8rem 0.4rem;
+  border: none;
+  border-radius: 0.4rem;
+}
+
+.popup-box .cancel {
+  border: 0.1rem solid red;
+  background-color: transparent;
+  color: red;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.popup-box .cancel:hover {
+  border: 0.1rem solid red;
+  background-color: red;
+  color: #202024;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.popup-box .add {
+  border: 0.1rem solid #35b176;
+  background-color: #35b176;
+  color: #fdfeff;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.popup-box .add:hover {
+  border: 0.1rem solid #fdfeff;
+}
+
+.disabled {
+  opacity: 0.4;
+}
+
+
