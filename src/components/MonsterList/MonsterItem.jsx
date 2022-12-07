@@ -52,7 +52,7 @@ export function MonsterItem({ boss }) {
 
   return (
     <li>
-      <div className="img-container">
+      <div className={`img-container ${boss.class === "boss" ? boss.modes?.mvp ? "mvp-canvas" : "boss-canvas" : ""}`}>
         <img
           src={`https://rockragnarok.com/edda/data/monsters/${boss.id}.gif`}
           alt=""
