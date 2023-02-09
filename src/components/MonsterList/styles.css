@@ -1,3 +1,9 @@
+.monster-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  overflow-y: scroll;
+}
 .monster-list li {
   display: flex;
   justify-content: space-between;
@@ -32,14 +38,31 @@
 }
 
 .monster-list div:nth-child(2) {
-  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
 .monster-list .name-container > p {
   font-size: 1.2rem;
+  display: flex;
+  gap: 0.4rem;
 }
+
+.monster-list .name-container > .monster-name {
+  font-size: 1.6rem;
+}
+
+.monster-list .name-container > .monster-id {
+  color: #7c7c8a;
+}
+
+
+
 .monster-list select {
   width: 14rem;
+  border-radius: 0.4rem;
+  padding: 0.2rem;
 }
 .monster-list option {
   display: flex;
@@ -47,11 +70,9 @@
 }
 
 .monster-list .button-container {
-  width: 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
   gap: 0.4rem;
 }
 

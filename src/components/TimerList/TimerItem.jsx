@@ -33,7 +33,8 @@ export function TimerItem({monster}){
 
     useEffect(()=>{
         setStartedAt(monster.startedAt)
-    },[])
+    },[monster.startedAt])
+
     return <li>
         <img 
         src={ `images/${monster.data.id}.png` }
@@ -48,8 +49,8 @@ export function TimerItem({monster}){
         <div>
             <p>{monster.data.name}</p>
             <p>{monster.respawnMap}</p>
-            <p>started at: {convertTime(startedAt)}</p>
-            <p>time left: {convertCronometer(timeLeft(startedAt))}</p>
+            <p><span>started at:</span> {convertTime(startedAt)}</p>
+            <p><span>time left:</span> {convertCronometer(timeLeft(startedAt))}</p>
         </div>
         <div>
             <button onClick={()=>setStartedAt(new Date())}>

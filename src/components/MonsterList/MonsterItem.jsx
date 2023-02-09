@@ -60,9 +60,9 @@ export function MonsterItem({ boss }) {
       </div>
       <div>
         <div className="name-container">
-          <p>{`${boss.name}`}</p>
-          <p>{`ID: ${boss.id}`}</p>
-          <p>{convertTime(respawn.respawnTime)}</p>
+          <p className="monster-name">{boss.name}</p>
+          <p className="monster-id"><span>ID:</span>{boss.id}</p>
+          <p><span>Respawn:</span>{convertTime(respawn.respawnTime)}</p>
         </div>
         <div className="select-container">
           <select

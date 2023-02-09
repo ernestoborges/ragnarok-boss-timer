@@ -14,13 +14,24 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 main {
   background-color: #202024;
-  padding: 2rem 1rem;
+  padding: 8rem 1rem 2rem;
+  height: 100%;
+  overflow: hidden;
 }
 
 main > section {
-  min-height: 100vh;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  height: 100%;
 }
 
 .hidden {

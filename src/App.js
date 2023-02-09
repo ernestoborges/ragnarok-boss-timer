@@ -29,12 +29,14 @@ export default function App() {
 
   return (
     <div className="App">
-      <Header />
-      <TabSwitch
-        tabs={["monsters", "timer"]}
-        selected={selectedTab}
-        setSelectedTab={setSelectedTab}
-      />
+      <div className="header-container">
+        <Header />
+        <TabSwitch
+          tabs={["monsters", "timer"]}
+          selected={selectedTab}
+          setSelectedTab={setSelectedTab}
+        />
+      </div>
       <main>
         {monsterList ? (
           <>
