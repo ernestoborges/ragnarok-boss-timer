@@ -32,7 +32,7 @@ export default function App() {
       <div className="header-container">
         <Header />
         <TabSwitch
-          tabs={["monsters", "timer"]}
+          tabs={["monsters", "timers"]}
           selected={selectedTab}
           setSelectedTab={setSelectedTab}
         />

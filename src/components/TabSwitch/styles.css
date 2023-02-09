@@ -20,3 +20,17 @@
   border-bottom: 0.2rem solid #ffd700 !important;
   color: #ffd700 !important;
 }
+
+.timers-count {
+  color: #7c7c8a !important;
+  position: relative;
+  left: 0.6rem;
+  align-self: flex-start;
+  background-color: #2e2e33;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0;
+  padding: 0 0.6rem ;
+  border-radius: 0.4rem;
+}
