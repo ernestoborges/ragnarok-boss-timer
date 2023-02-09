@@ -2,14 +2,16 @@ import "./styles.css"
 import { useEffect, useState, useContext } from "react";
 import TimeContext from "../../context/TimeProvider";
 import SelectedMonstersContext from "../../context/SelectedMonstersProvider";
+import { BiRefresh } from "react-icons/bi"
+import { BsTrash } from "react-icons/bs";
 
-export function TimerItem({monster}){
+export function TimerItem({ monster }) {
     const timer = useContext(TimeContext).timer;
     const setSelectedMonsters = useContext(SelectedMonstersContext).setSelectedMonsters
 
     const [startedAt, setStartedAt] = useState(new Date());
 
-    function timeLeft(started){
+    function timeLeft(started) {
         const endsAt = started.getTime() + monster.respawnTime
         return endsAt - timer
     }
@@ -20,7 +22,7 @@ export function TimerItem({monster}){
         return pad.substring(0, pad.length - str.length) + str;
     }
 
-    function convertTime(obj){
+    function convertTime(obj) {
         const h = stringfyTime(obj.getHours());
         const m = stringfyTime(obj.getMinutes());
         const s = stringfyTime(obj.getSeconds());
@@ -29,22 +31,22 @@ export function TimerItem({monster}){
 
     function convertCronometer(miliseconds) {
         return new Date(miliseconds).toISOString().slice(11, 19);
-      }
+    }
 
-    useEffect(()=>{
+    useEffect(() => {
         setStartedAt(monster.startedAt)
-    },[monster.startedAt])
+    }, [monster.startedAt])
 
     return <li>
-        <img 
-        src={ `images/${monster.data.id}.png` }
-        onError={
-            (e)=> {
-                e.onError = null;
-                e.src = "images/default.png"
+        <img
+            src={`images/${monster.data.id}.png`}
+            onError={
+                (e) => {
+                    e.onError = null;
+                    e.src = "images/default.png"
+                }
             }
-        }
-        alt=""
+            alt=""
         />
         <div>
             <p>{monster.data.name}</p>
@@ -53,21 +55,21 @@ export function TimerItem({monster}){
             <p><span>time left:</span> {convertCronometer(timeLeft(startedAt))}</p>
         </div>
         <div>
-            <button onClick={()=>setStartedAt(new Date())}>
-                refresh
+            <button onClick={() => setStartedAt(new Date())}>
+                <BiRefresh />
             </button>
-            
-            <button 
-            onClick={
-                () => setSelectedMonsters(
-                    (prev)=> prev.filter(
-                        filtered => filtered.index !== monster.index
+
+            <button
+                onClick={
+                    () => setSelectedMonsters(
+                        (prev) => prev.filter(
+                            filtered => filtered.index !== monster.index
+                        )
                     )
-                )
-            }>
-                cancel
+                }>
+                <BsTrash />
             </button>
         </div>
-        
+
     </li>
 }
