@@ -3,21 +3,20 @@ import { useEffect, useState, useContext } from "react";
 import SelectedMonstersContext from "../../context/SelectedMonstersProvider";
 import TimeContext from "../../context/TimeProvider";
 import { Popup } from "./Popup";
-import { BsHourglass } from "react-icons/bs"
 
 export function MonsterItem({ boss }) {
-  const [respawn, setRespawn] = useState({respawnMap:"", respawnTime:0});
+  const [respawn, setRespawn] = useState({ respawnMap: "", respawnTime: 0 });
 
   const timer = useContext(TimeContext).timer;
   const setSelectedMonsters = useContext(SelectedMonstersContext).setSelectedMonsters
 
   const [popupOn, setPopupOn] = useState(false)
 
-  function openPopup(){
+  function openPopup() {
     setPopupOn(true);
   }
-  
-  function closePopup(){
+
+  function closePopup() {
     setPopupOn(false);
   }
 
@@ -25,13 +24,13 @@ export function MonsterItem({ boss }) {
     return new Date(Number(time)).toISOString().slice(11, 19);
   }
 
-  function handdleSelectedMonsters(startedAt){
-   
-    setSelectedMonsters((prev)=>
+  function handdleSelectedMonsters(startedAt) {
+
+    setSelectedMonsters((prev) =>
       [
         ...prev,
         {
-          index: prev.length === 0 ? 0 : prev[prev.length-1].index + 1,
+          index: prev.length === 0 ? 0 : prev[prev.length - 1].index + 1,
           data: boss,
           respawnMap: respawn.respawnMap,
           respawnTime: respawn.respawnTime,
@@ -44,7 +43,7 @@ export function MonsterItem({ boss }) {
   useEffect(() => {
     setRespawn(
       {
-        respawnMap: boss.spawn_maps[0].mapname, 
+        respawnMap: boss.spawn_maps[0].mapname,
         respawnTime: boss.spawn_maps[0].respawnTime
       }
     );
@@ -58,7 +57,7 @@ export function MonsterItem({ boss }) {
           alt=""
         />
       </div>
-      <div>
+      <div className="info-container">
         <div className="name-container">
           <p className="monster-name">{boss.name}</p>
           <p className="monster-id"><span>ID:</span>{boss.id}</p>
@@ -66,35 +65,44 @@ export function MonsterItem({ boss }) {
         </div>
         <div className="select-container">
           <select
-            onChange={(e) => 
+            onChange={(e) =>
               setRespawn(JSON.parse(e.target.value))
             }
           >
             {boss.spawn_maps.map((map, index) => (
               <option
-                key={index} 
+                key={index}
                 value={
                   JSON.stringify(
                     {
-                      respawnMap: map.mapname, 
+                      respawnMap: map.mapname,
                       respawnTime: map.respawnTime
                     }
                   )
                 }>
-              {map.mapname}
+                {map.mapname}
               </option>
             ))}
           </select>
         </div>
       </div>
+      <div className="map-container">
+                <img 
+                  src = {`http://www3.worldrag.com/database/media/maps/${respawn.respawnMap}.gif`} 
+                  onError={(e)=>{
+                    e.target.onError = null;
+                    e.target.src = `https://www.divine-pride.net/img/map/raw/${respawn.respawnMap}`
+                  }}
+                  alt="" />
+      </div>
       <div className="button-container">
-        <button 
-          onClick={()=>{
+        <button
+          onClick={() => {
             handdleSelectedMonsters(timer)
           }}
         >
           Add</button>
-        <button 
+        <button
           onClick={openPopup}
         >Custom</button>
       </div>
