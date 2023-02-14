@@ -1,4 +1,8 @@
 
+.search-bar-container {
+    width: 100%;
+}
+
 .search-bar {
     border: 0.1rem solid #ffd700;
     border-radius: 2rem;

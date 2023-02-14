@@ -1,15 +1,20 @@
 .timer-list {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-    gap: 2rem;
+    display: grid;
+    row-gap: 2rem;
+    column-gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .timer-list li {
+    min-width: 31.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1.4rem;
+    border: 0.1rem solid #ffd700;
+    padding: 1.6rem;
+    border-radius: 1rem;
+    background-color: #1e1e1e;
 }
 
 .timer-list li > img {

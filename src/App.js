@@ -1,5 +1,5 @@
 import "./styles.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import { Header } from "./components/Header/Header";
 import { TabSwitch } from "./components/TabSwitch/TabSwitch";
@@ -10,6 +10,7 @@ import { TimerTab } from "./components/TimerTab/TimerTab";
 export default function App() {
   const [monsterList, setMonsterList] = useState([]);
   const [selectedTab, setSelectedTab] = useState("monsters");
+
   useEffect(() => {
     fetch("https://ragnarok-api.b4a.app/en/monsters")
       .then((response) => {

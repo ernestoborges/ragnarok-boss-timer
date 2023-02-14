@@ -73,8 +73,8 @@ export function MonsterTab({ monsters, selectedTab }) {
     setFilteredMonsters(monsters)
   },[monsters])
 
-  return (
-    <section className={selectedTab === "monsters" ? "" : "hidden"}>
+  return ( 
+    <section className={`monsters-tab ${selectedTab !== "monsters" ? "hide-tab" : ""}`}>
       <div className="search-bar-container">
         <div className="search-bar">
           <div className="input-container">

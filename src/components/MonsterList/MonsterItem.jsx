@@ -87,13 +87,17 @@ export function MonsterItem({ boss }) {
         </div>
       </div>
       <div className="map-container">
-                <img 
-                  src = {`http://www3.worldrag.com/database/media/maps/${respawn.respawnMap}.gif`} 
-                  onError={(e)=>{
-                    e.target.onError = null;
-                    e.target.src = `https://www.divine-pride.net/img/map/raw/${respawn.respawnMap}`
-                  }}
-                  alt="" />
+        {
+          respawn.respawnMap &&
+          <img
+            src={`http://www3.worldrag.com/database/media/maps/${respawn.respawnMap}.gif`}
+            onError={(e) => {
+              e.target.onError = null;
+              e.target.src = `https://www.divine-pride.net/img/map/raw/${respawn.respawnMap}`
+            }}
+            alt=""
+          />
+        }
       </div>
       <div className="button-container">
         <button

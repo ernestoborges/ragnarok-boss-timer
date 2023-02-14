@@ -25,6 +25,8 @@ main {
   padding: 8rem 1rem 2rem;
   height: 100%;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 main > section {
@@ -34,6 +36,22 @@ main > section {
   height: 100%;
 }
 
+.monsters-tab {
+  align-items: center;
+  max-width: 46rem;
+}
+
 .hidden {
   display: none !important;
+}
+/* 
+.hide-tab{
+  display: none;
+} */
+
+@media only screen and (max-width: 1000px ){
+
+  .hide-tab{
+    display: none !important;
+  }
 }
