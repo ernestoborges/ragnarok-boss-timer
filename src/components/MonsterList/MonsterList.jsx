@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { MonsterItem } from "./MonsterItem";
-import { Popup } from "./Popup";
 
 
 export function MonsterList({ monsters }) {

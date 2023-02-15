@@ -42,6 +42,7 @@ export default function App() {
         {monsterList ? (
           <>
             <MonsterTab selectedTab={selectedTab} monsters={monsterList} />
+            <div className="vertical-rule hide-tab"/>
             <TimerTab selectedTab={selectedTab} />
           </>
         ) : (
