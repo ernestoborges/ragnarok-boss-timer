@@ -11,7 +11,7 @@ export function TimerList({ listStyle }) {
                 {selectedMonsters.map((monster, i) => <GalleryItem key={i} monster={monster} />)}
             </ul>
             <ul className={`timer-list type-list ${listStyle === "gallery" ? "hidden" : ""}`}>
-                <li><div>Card</div><div><p>Name</p><p>Map</p><p>Killed at</p><p>Time left</p></div><div></div></li>
+                <li><div>Card</div><div><p>Name</p><p>Map</p><p>Killed</p><p>Time left</p></div><div></div></li>
                 {selectedMonsters.map((monster, i) => <ListItem key={i} monster={monster} />)}
             </ul>
         </>
